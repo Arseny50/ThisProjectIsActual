@@ -1,5 +1,7 @@
 package org.example.lesson5;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -29,11 +31,15 @@ public class AbstractTest {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
     }
+
+
+
     @BeforeEach
     void goTo() {
         Assertions.assertDoesNotThrow( ()-> driver.navigate().to("https://www.livejournal.com"),
                 "Страница недоступна");
     }
+
 
     @AfterAll
     static void close() {
